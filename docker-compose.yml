@@ -7,14 +7,18 @@ services:
       - "./src/main/frontend:/app"
     ports:
       - 3000:3000 # Frontend HTTP server port
-    stdin_open: true # Without this, react-scripts exits immediately. See https://github.com/facebook/create-react-app/issues/8688
+    # Without "stdin_open: true", react-scripts exits immediately.
+    # See https://github.com/facebook/create-react-app/issues/8688
+    stdin_open: true
     command: "yarn --cwd /app start"
 
   backend:
     image: maven
     volumes:
       - "./:/app"
-      - "~/.m2:/root/.m2" # Using user's local .m2-directory, both for custom settings.xml and for caching dependencies
+      # Mounting user's local .m2-directory,
+      # for custom settings.xml and for caching dependencies.
+      - "~/.m2:/root/.m2"
     ports:
       - 5005:5005 # Debug port
       - 8080:8080 # Backend HTTP server port

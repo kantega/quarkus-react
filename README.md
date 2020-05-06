@@ -5,4 +5,4 @@ This project demonstrates hot deployment of applications with Quarkus REST backe
 
 Docker is required, start project with `docker-compose up`.
 
-Further explanation of this project can be found here: https://blogg.kantega.no/TODO
+Further explanation of this project can be found here: https://blogg.kantega.no/hot_deployment_of_quarkus_and_node_through_docker
